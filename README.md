@@ -9,12 +9,15 @@ created by flake-utils's `eachDefaultSystem`. Include these in
 `environment.systemPackages` or any other list that accepts packages to install
 it to your system (like `home-manager.users.<user>.home.packages` for instance). 
 
+After you've installed it, you can either run it with the desktop item
+installed by the package, or by running `vesc_tool` in your terminal.
+
 You can try it directly from your shell by running the following command:
 ```shell
 nix run github:laxsjo/vesc-tool-flake
 ```
 
-Here is a sample flake.nix NixOS configuration that install VESC Tool as a
+Here is a sample flake.nix NixOS configuration that installs VESC Tool as a
 system package.
 
 ```nix
@@ -44,10 +47,10 @@ system package.
 }
 ```
 
-If you want to build a different version of VESC Tool, you only need to override
-this flake's `vesc-tool-src` input.
+If you want to build a different version of VESC Tool, you can override this
+flake's `vesc-tool-src` input.
 
-To set it to a specific branch:
+You can either set it to a specific branch/tag:
 ```nix
 {  
   vesc-tool-flake = {
@@ -57,7 +60,7 @@ To set it to a specific branch:
 }
 ```
 
-To set it to a specific commit:
+Or you can set it to a specific commit:
 ```nix
 {  
   vesc-tool-flake = {
