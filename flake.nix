@@ -33,14 +33,9 @@
         };
         
         src = vesc-tool-src;
-        
-        # I have no idea why this is necessary :D
-        patches = [
-          ./res_fw.patch
-        ];
 
         configurePhase = ''
-          qmake -config release "CONFIG += release_lin build_original"
+          qmake -config release "CONFIG += release_lin build_free exclude_fw"
         '';
         buildPhase = ''
           make -j8
