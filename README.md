@@ -48,24 +48,30 @@ system package.
 ```
 
 If you want to build a different version of VESC Tool, you can override this
-flake's `vesc-tool-src` input.
+flake's `src` input.
 
 You can either set it to a specific branch/tag:
 ```nix
 {  
+  vesc-tool-src = {
+    url = "github:vedderb/vesc_tool/master";
+  };
   vesc-tool-flake = {
     url = "github:laxsjo/vesc-tool-flake";
-    inputs.vesc-tool-src.url = "github:vedderb/vesc_tool/master";
+    inputs.src.follows = "vesc-tool-src";
   };
 }
 ```
 
 Or you can set it to a specific commit:
 ```nix
-{  
+{
+  vesc-tool-src = {
+    url = "github:vedderb/vesc_tool/4b3cb2a0555576e762491678c08d5d2286f9d6f9";
+  };
   vesc-tool-flake = {
     url = "github:laxsjo/vesc-tool-flake";
-    inputs.vesc-tool-src.url = "github:vedderb/vesc_tool/4b3cb2a0555576e762491678c08d5d2286f9d6f9";
+    inputs.src.url = "vesc-tool-src";
   };
 }
 ```
