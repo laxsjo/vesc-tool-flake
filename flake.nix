@@ -4,13 +4,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    vesc-tool-src = {
+    src = {
       url = "github:vedderb/vesc_tool/release_6_05";
       flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, vesc-tool-src }: flake-utils.lib.eachDefaultSystem (system:
+  outputs = { self, nixpkgs, flake-utils, src }: flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       name = "vesc_tool";
@@ -25,14 +25,14 @@
       };
       vesc-tool = pkgs.stdenv.mkDerivation {
         pname = name;
-        version = "6.05";
+        version = src.rev or "unknown";
         
         meta = with pkgs.lib; {
           description = "VESC Tool";
           platforms = platforms.linux;
         };
         
-        src = vesc-tool-src;
+        src = src;
 
         configurePhase = ''
           qmake -config release "CONFIG += release_lin build_free exclude_fw"
