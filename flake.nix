@@ -17,7 +17,7 @@
       desktopItem = pkgs.makeDesktopItem {
         name = "com.vesc-project.";
         exec = "vesc_tool";
-        icon = "neutral_v.svg";
+        icon = "vesc_tool.svg";
         comment = "IDE for controlling and configuring VESC-compatible motor controllers and other devices.";
         desktopName = "VESC Tool";
         genericName = "Integrated Development Environment";
@@ -42,11 +42,11 @@
         '';
         installPhase = ''
           mkdir -p $out/bin
-          mkdir -p $out/share/icons
+          mkdir -p $out/share/icons/hicolor/scaled/apps
           mkdir -p $out/share/applications
           
           cp build/lin/vesc_tool_* $out/bin/vesc_tool
-          cp res/version/neutral_v.svg $out/share/icons/
+          cp res/version/neutral_v.svg $out/share/icons/hicolor/scaled/apps/vesc_tool.svg
           cp ${desktopItem}/share/applications/* $out/share/applications/
         '';
         
