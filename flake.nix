@@ -15,7 +15,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       name = "vesc_tool";
       desktopItem = pkgs.makeDesktopItem {
-        name = name;
+        name = "com.vesc-project.";
         exec = "vesc_tool";
         icon = "neutral_v.svg";
         comment = "IDE for controlling and configuring VESC-compatible motor controllers and other devices.";
@@ -47,7 +47,7 @@
           
           cp build/lin/vesc_tool_* $out/bin/vesc_tool
           cp res/version/neutral_v.svg $out/share/icons/
-          cp ${desktopItem}/share/applications/${name}.desktop $out/share/applications/
+          cp ${desktopItem}/share/applications/* $out/share/applications/
         '';
         
         buildInputs = [ pkgs.libsForQt5.qtbase ];
