@@ -32,11 +32,11 @@ in pkgs.stdenv.mkDerivation {
   '';
   installPhase = ''
     mkdir -p $out/bin
-    mkdir -p $out/share/icons/hicolor/scaled/apps
+    mkdir -p $out/share/icons/hicolor/scalable/apps
     mkdir -p $out/share/applications
     
     cp build/lin/vesc_tool_* $out/bin/vesc_tool
-    cp res/version/neutral_v.svg $out/share/icons/hicolor/scaled/apps/vesc_tool.svg
+    cp res/version/neutral_v.svg $out/share/icons/hicolor/scalable/apps/vesc_tool.svg
     cp ${desktopItem}/share/applications/* $out/share/applications/
   '';
   
