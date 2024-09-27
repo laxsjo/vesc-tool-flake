@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "bldcSrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726298176,
+        "narHash": "sha256-Z4pVm/5K4wxx0iHAmFeEPQiWZmHcoKWHJUt7UDwkU1I=",
+        "owner": "vedderb",
+        "repo": "bldc",
+        "rev": "b8a7a34f03e4338fe8e927f9dab944ef95efc2f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vedderb",
+        "ref": "release_6_05",
+        "repo": "bldc",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -36,6 +53,7 @@
     },
     "root": {
       "inputs": {
+        "bldcSrc": "bldcSrc",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "src": "src"
@@ -44,11 +62,11 @@
     "src": {
       "flake": false,
       "locked": {
-        "lastModified": 1726471702,
-        "narHash": "sha256-64C6ViwBdLN9sjHoH3RllJcM7FYRutjol2h4UvLsjrA=",
+        "lastModified": 1727361205,
+        "narHash": "sha256-EiMaRm9s+z5Q9m5Nzoev8G2C90JWYI7wLpsvEUaJS10=",
         "owner": "vedderb",
         "repo": "vesc_tool",
-        "rev": "e3d25e966f61e75cae95c6c87c123af3fa92c20d",
+        "rev": "cd0ca47e8a54abd5c24e288d7b3c6e0d918928df",
         "type": "github"
       },
       "original": {
