@@ -13,6 +13,8 @@ There is one package per paid tier of VESC Tool. They are as follows (with their
 
 The tier only changes the logo inside of VESC Tool and the desktop icon.
 
+You can unfortunately only have a single version of VESC Tool installed at a time, due to the desktop entry files otherwise colliding.
+
 ## Usage
 This flake outputs packages under `packages.<system>.*` for each system created by flake-utils's `eachDefaultSystem` (I have only tested x86_64-linux, sorry). Include these in `environment.systemPackages` or any other list that accepts packages (like `home-manager.users.<user>.home.packages` for instance) to install them. 
 
@@ -52,7 +54,6 @@ system package using the overlay.
         ({ pkgs }: {
           environment.systemPackages = [
             pkgs.vesc-tool
-            pkgs.vesc-tool-platinum
           ];
         })
       ];
@@ -67,7 +68,6 @@ If you prefer, you can also include the package directly (assuming that you have
 {
   environment.systemPackages = [
     vesc-tool-flake.packages.${system}.default
-    vesc-tool-flake.packages.${system}.vesc-tool-free
   ];
 }
 ```
