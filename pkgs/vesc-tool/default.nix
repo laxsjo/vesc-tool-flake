@@ -62,7 +62,7 @@ in pkgs.stdenv.mkDerivation {
     
     ls -la res/firmwares
     
-    make -j8
+    make -j$NIX_BUILD_CORES
   '';
   installPhase = ''
     runHook preInstall
